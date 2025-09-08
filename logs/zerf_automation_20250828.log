@@ -1,0 +1,233 @@
+2025-08-28 04:04:24,859 - INFO - ZERF Automation System initialized
+2025-08-28 04:04:30,709 - INFO - ============================================================
+2025-08-28 04:04:30,709 - INFO - Starting ZERF automation workflow
+2025-08-28 04:04:30,710 - INFO - ============================================================
+2025-08-28 04:04:30,713 - INFO - Step 1: Running VBS script...
+2025-08-28 04:04:30,715 - INFO - Starting VBS script execution...
+2025-08-28 04:04:30,718 - INFO - Created VBS script with date: 08/28/2025
+2025-08-28 04:04:30,721 - INFO - Target file: C:\Users\jhash\Documents\DEALr\downloads\zerf_08-28-2025.xlsx
+2025-08-28 04:04:33,066 - INFO - VBS script executed successfully
+2025-08-28 04:04:33,066 - INFO - Step 2: Waiting for file to be completely saved...
+2025-08-28 04:04:43,068 - INFO - Step 3: Searching for downloaded file...
+2025-08-28 04:04:43,069 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 04:04:43,097 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 04:04:53,290 - INFO - Waiting for files... (0.2 min elapsed)
+2025-08-28 04:04:53,291 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 04:04:53,294 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 04:05:01,967 - INFO - ZERF automation system stopped
+2025-08-28 04:05:03,305 - INFO - Waiting for files... (0.3 min elapsed)
+2025-08-28 04:05:03,308 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 04:05:03,312 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 04:05:13,332 - INFO - Waiting for files... (0.5 min elapsed)
+2025-08-28 04:05:13,334 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 04:05:13,338 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 04:05:23,349 - INFO - Waiting for files... (0.7 min elapsed)
+2025-08-28 04:05:23,351 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 04:05:23,353 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 04:06:52,133 - INFO - ZERF Automation System initialized
+2025-08-28 04:06:57,483 - INFO - ============================================================
+2025-08-28 04:06:57,484 - INFO - Starting ZERF automation workflow
+2025-08-28 04:06:57,485 - INFO - ============================================================
+2025-08-28 04:06:57,486 - INFO - Step 1: Running VBS script...
+2025-08-28 04:06:57,489 - INFO - Starting VBS script execution...
+2025-08-28 04:06:57,492 - INFO - Created VBS script with date: 08/28/2025
+2025-08-28 04:06:57,493 - INFO - Target file: C:\Users\jhash\Documents\DEALr\downloads\zerf_08-28-2025.xlsx
+2025-08-28 04:12:01,466 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 04:12:01,470 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 04:12:11,673 - INFO - Waiting for files... (0.2 min elapsed)
+2025-08-28 04:12:11,674 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 04:12:11,677 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 04:12:15,948 - INFO - VBS script executed successfully
+2025-08-28 04:12:15,949 - INFO - Step 2: Waiting for file to be completely saved...
+2025-08-28 04:12:21,686 - INFO - Waiting for files... (0.3 min elapsed)
+2025-08-28 04:12:21,687 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 04:12:21,690 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 04:12:25,950 - INFO - Step 3: Searching for downloaded file...
+2025-08-28 04:12:25,951 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 04:12:25,953 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 04:12:31,703 - INFO - Waiting for files... (0.5 min elapsed)
+2025-08-28 04:12:31,704 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 04:12:31,708 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 04:12:35,960 - INFO - Waiting for files... (0.2 min elapsed)
+2025-08-28 04:12:35,961 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 04:12:35,964 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 04:12:41,720 - INFO - Waiting for files... (0.7 min elapsed)
+2025-08-28 04:12:41,721 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 04:12:41,725 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 04:12:45,975 - INFO - Waiting for files... (0.3 min elapsed)
+2025-08-28 04:12:45,976 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 04:12:45,979 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 04:12:51,738 - INFO - Waiting for files... (0.8 min elapsed)
+2025-08-28 04:12:51,739 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 04:12:51,743 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 04:12:55,991 - INFO - Waiting for files... (0.5 min elapsed)
+2025-08-28 04:12:55,992 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 04:12:55,996 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 04:13:01,757 - INFO - Waiting for files... (1.0 min elapsed)
+2025-08-28 04:13:01,757 - WARNING - No accessible Excel files found after waiting
+2025-08-28 04:13:06,010 - INFO - Waiting for files... (0.7 min elapsed)
+2025-08-28 04:13:06,011 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 04:13:06,016 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 04:13:16,024 - INFO - Waiting for files... (0.8 min elapsed)
+2025-08-28 04:13:16,025 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 04:13:16,032 - INFO - Found candidate file: C:\Users\jhash\Documents\DEALr\downloads\zerf_08-28-2025.xlsx (age: 1.8 min)
+2025-08-28 04:13:16,034 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 04:13:16,052 - INFO - Selected accessible file: C:\Users\jhash\Documents\DEALr\downloads\zerf_08-28-2025.xlsx
+2025-08-28 04:13:16,053 - INFO - Found downloaded file: C:\Users\jhash\Documents\DEALr\downloads\zerf_08-28-2025.xlsx
+2025-08-28 04:13:16,055 - INFO - Step 4: Cleaning data...
+2025-08-28 04:13:16,056 - INFO - Starting data cleaning: C:\Users\jhash\Documents\DEALr\downloads\zerf_08-28-2025.xlsx
+2025-08-28 04:13:17,036 - INFO - Processing sheet: Sheet1
+2025-08-28 04:13:27,152 - INFO - Sheet Sheet1: 16383 -> 2033 rows
+2025-08-28 04:13:31,570 - INFO - Data cleaning completed: C:\Users\jhash\Documents\DEALr\downloads\zerf_08-28-2025_cleaned.xlsx
+2025-08-28 04:13:31,573 - INFO - Step 5: Uploading to SharePoint...
+2025-08-28 04:13:31,575 - INFO - Starting SharePoint upload: C:\Users\jhash\Documents\DEALr\downloads\zerf_08-28-2025_cleaned.xlsx
+2025-08-28 04:13:31,955 - ERROR - Cannot get binary security token for from https://login.microsoftonline.com/extSTS.srf
+2025-08-28 04:13:31,956 - ERROR - Office365 upload error: Cannot get binary security token for from https://login.microsoftonline.com/extSTS.srf
+2025-08-28 04:13:31,957 - WARNING - SharePoint upload failed
+2025-08-28 04:13:31,966 - INFO - Backup created: backup\zerf_08-28-2025_20250828_041331.xlsx
+2025-08-28 04:13:31,969 - INFO - Backup created: backup\zerf_08-28-2025_cleaned_20250828_041331.xlsx
+2025-08-28 04:13:31,969 - INFO - ============================================================
+2025-08-28 04:13:31,971 - INFO - ZERF automation workflow completed successfully!
+2025-08-28 04:13:31,974 - INFO - ============================================================
+2025-08-28 10:24:59,520 - INFO - ZERF Automation System initialized
+2025-08-28 10:25:04,658 - INFO - ============================================================
+2025-08-28 10:25:04,660 - INFO - Starting ZERF automation workflow
+2025-08-28 10:25:04,662 - INFO - ============================================================
+2025-08-28 10:25:04,664 - INFO - Step 1: Running VBS script...
+2025-08-28 10:25:04,665 - INFO - Starting VBS script execution...
+2025-08-28 10:25:04,669 - INFO - Created VBS script with date: 08/28/2025
+2025-08-28 10:25:04,672 - INFO - Target file: C:\Users\jhash\Documents\DEALr\downloads\zerf_08-28-2025.xlsx
+2025-08-28 10:25:08,718 - INFO - VBS script executed successfully
+2025-08-28 10:25:08,719 - INFO - Step 2: Waiting for file to be completely saved...
+2025-08-28 10:25:18,721 - INFO - Step 3: Searching for downloaded file...
+2025-08-28 10:25:18,723 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:25:18,842 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:25:29,148 - INFO - Waiting for files... (0.2 min elapsed)
+2025-08-28 10:25:29,149 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:25:29,157 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:25:33,064 - INFO - ZERF automation system stopped
+2025-08-28 10:25:39,178 - INFO - Waiting for files... (0.3 min elapsed)
+2025-08-28 10:25:39,180 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:25:39,189 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:25:49,215 - INFO - Waiting for files... (0.5 min elapsed)
+2025-08-28 10:25:49,217 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:25:49,229 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:25:59,253 - INFO - Waiting for files... (0.7 min elapsed)
+2025-08-28 10:25:59,255 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:25:59,266 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:26:06,682 - INFO - ============================================================
+2025-08-28 10:26:06,686 - INFO - Starting ZERF automation workflow
+2025-08-28 10:26:06,689 - INFO - ============================================================
+2025-08-28 10:26:06,694 - INFO - Step 1: Running VBS script...
+2025-08-28 10:26:06,712 - INFO - Starting VBS script execution...
+2025-08-28 10:26:06,730 - INFO - Created VBS script with date: 08/28/2025
+2025-08-28 10:26:06,736 - INFO - Target file: C:\Users\jhash\Documents\DEALr\downloads\zerf_08-28-2025.xlsx
+2025-08-28 10:26:09,290 - INFO - Waiting for files... (0.8 min elapsed)
+2025-08-28 10:26:09,299 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:26:09,310 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:26:19,333 - INFO - Waiting for files... (1.0 min elapsed)
+2025-08-28 10:26:19,336 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:26:19,347 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:26:29,370 - INFO - Waiting for files... (1.2 min elapsed)
+2025-08-28 10:26:29,376 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:26:29,393 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:26:39,429 - INFO - Waiting for files... (1.3 min elapsed)
+2025-08-28 10:26:39,438 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:26:39,456 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:26:49,493 - INFO - Waiting for files... (1.5 min elapsed)
+2025-08-28 10:26:49,506 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:26:49,528 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:26:59,573 - INFO - Waiting for files... (1.7 min elapsed)
+2025-08-28 10:26:59,578 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:26:59,595 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:27:09,627 - INFO - Waiting for files... (1.8 min elapsed)
+2025-08-28 10:27:09,635 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:27:09,652 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:27:19,683 - INFO - Waiting for files... (2.0 min elapsed)
+2025-08-28 10:27:19,690 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:27:19,711 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:27:29,748 - INFO - Waiting for files... (2.2 min elapsed)
+2025-08-28 10:27:29,759 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:27:29,773 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:27:39,801 - INFO - Waiting for files... (2.4 min elapsed)
+2025-08-28 10:27:39,810 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:27:39,829 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:27:49,865 - INFO - Waiting for files... (2.5 min elapsed)
+2025-08-28 10:27:49,928 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:27:50,044 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:28:00,090 - INFO - Waiting for files... (2.7 min elapsed)
+2025-08-28 10:28:00,096 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:28:00,115 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:28:10,147 - INFO - Waiting for files... (2.9 min elapsed)
+2025-08-28 10:28:10,153 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:28:10,169 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:28:20,199 - INFO - Waiting for files... (3.0 min elapsed)
+2025-08-28 10:28:20,205 - WARNING - No accessible Excel files found after waiting
+2025-08-28 10:28:20,212 - ERROR - No downloaded file found
+2025-08-28 10:28:22,985 - INFO - VBS script executed successfully
+2025-08-28 10:28:22,987 - INFO - Step 2: Waiting for file to be completely saved...
+2025-08-28 10:28:32,992 - INFO - Step 3: Searching for downloaded file...
+2025-08-28 10:28:32,994 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:28:33,009 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:28:43,039 - INFO - Waiting for files... (0.2 min elapsed)
+2025-08-28 10:28:43,040 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:28:43,053 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:28:53,077 - INFO - Waiting for files... (0.3 min elapsed)
+2025-08-28 10:28:53,079 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:28:53,093 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:29:03,113 - INFO - Waiting for files... (0.5 min elapsed)
+2025-08-28 10:29:03,116 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:29:03,134 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:29:13,197 - INFO - Waiting for files... (0.7 min elapsed)
+2025-08-28 10:29:13,200 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:29:13,220 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:29:23,246 - INFO - Waiting for files... (0.8 min elapsed)
+2025-08-28 10:29:23,251 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:29:23,266 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:29:33,292 - INFO - Waiting for files... (1.0 min elapsed)
+2025-08-28 10:29:33,294 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:29:33,311 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:29:43,336 - INFO - Waiting for files... (1.2 min elapsed)
+2025-08-28 10:29:43,338 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:29:43,353 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:29:53,382 - INFO - Waiting for files... (1.3 min elapsed)
+2025-08-28 10:29:53,384 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:29:53,399 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:30:03,429 - INFO - Waiting for files... (1.5 min elapsed)
+2025-08-28 10:30:03,432 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:30:03,446 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:30:13,476 - INFO - Waiting for files... (1.7 min elapsed)
+2025-08-28 10:30:13,481 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:30:13,495 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:30:23,526 - INFO - Waiting for files... (1.8 min elapsed)
+2025-08-28 10:30:23,528 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:30:23,542 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:30:33,564 - INFO - Waiting for files... (2.0 min elapsed)
+2025-08-28 10:30:33,566 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:30:33,575 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:30:43,602 - INFO - Waiting for files... (2.2 min elapsed)
+2025-08-28 10:30:43,604 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:30:43,622 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:30:53,653 - INFO - Waiting for files... (2.3 min elapsed)
+2025-08-28 10:30:53,655 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:30:53,668 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:31:03,702 - INFO - Waiting for files... (2.5 min elapsed)
+2025-08-28 10:31:03,708 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:31:03,722 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:31:13,753 - INFO - Waiting for files... (2.7 min elapsed)
+2025-08-28 10:31:13,755 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:31:13,773 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:31:23,802 - INFO - Waiting for files... (2.8 min elapsed)
+2025-08-28 10:31:23,804 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-08-28 10:31:23,819 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-08-28 10:31:33,847 - INFO - Waiting for files... (3.0 min elapsed)
+2025-08-28 10:31:33,851 - WARNING - No accessible Excel files found after waiting
+2025-08-28 10:31:33,857 - ERROR - No downloaded file found
+2025-08-28 10:37:15,986 - INFO - ZERF Automation System initialized
+2025-08-28 10:37:29,640 - INFO - ============================================================
+2025-08-28 10:37:29,641 - INFO - Starting ZERF automation workflow
+2025-08-28 10:37:29,645 - INFO - ============================================================
+2025-08-28 10:37:29,649 - INFO - Step 1: Running VBS script...
+2025-08-28 10:37:29,666 - INFO - Starting VBS script execution...
+2025-08-28 10:37:29,671 - INFO - Created VBS script with date: 08/28/2025
+2025-08-28 10:37:29,676 - INFO - Target file: C:\Users\jhash\Documents\DEALr\downloads\zerf_08-28-2025.xlsx

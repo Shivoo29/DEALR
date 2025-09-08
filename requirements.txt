@@ -1,0 +1,32 @@
+# ZERF Automation System - Python Requirements
+# Install with: pip install -r requirements.txt
+
+# Core data processing
+pandas>=1.5.0
+numpy>=1.21.0
+openpyxl>=3.1.0
+
+# Task scheduling
+schedule>=1.2.0
+
+# File system monitoring
+watchdog>=3.0.0
+
+# HTTP requests for SharePoint
+requests>=2.28.0
+
+# SharePoint integration (choose one)
+Office365-REST-Python-Client>=2.5.0
+# sharepy>=2.0.0  # Alternative option
+
+# Configuration management
+configparser>=5.3.0
+
+# Optional: Windows Service support
+pywin32>=306  # Uncomment for Windows service functionality
+
+# Optional: GUI support (included in standard Python)
+# tkinter  # Usually included with Python
+
+# Optional: Email notifications
+# smtplib  # Usually included with Python

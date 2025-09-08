@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZERF Data Automation System - Hourly Project Timeline Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: white;
+            color: black;
+            padding: 20px;
+            font-size: 12px;
+        }
+
+        .dashboard-header {
+            background: #0066CC;
+            color: white;
+            padding: 15px 20px;
+            margin-bottom: 0;
+            font-weight: bold;
+            font-size: 14px;
+            border: 2px solid black;
+            text-align: center;
+        }
+
+        .timeline-container {
+            border: 2px solid black;
+            border-top: none;
+            overflow-x: auto;
+            background: white;
+        }
+
+        .timeline-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 2000px;
+        }
+
+        .timeline-table th,
+        .timeline-table td {
+            border: 1px solid black;
+            padding: 6px;
+            text-align: left;
+            font-size: 10px;
+            vertical-align: middle;
+        }
+
+        .header-row {
+            background: #E6F3FF;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .day-header {
+            background: #B3D9FF;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            width: 20px;
+            font-size: 9px;
+            font-weight: bold;
+            text-align: center;
+            padding: 4px 2px;
+        }
+
+        .hour-header {
+            background: #D9EDFF;
+            font-size: 8px;
+            text-align: center;
+            font-weight: bold;
+            width: 15px;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            padding: 2px 1px;
+        }
+
+        .phase-cell {
+            background: #E6F3FF;
+            font-weight: bold;
+            text-align: center;
+            width: 40px;
+        }
+
+        .activity-cell {
+            background: #F9F9F9;
+            width: 280px;
+            font-size: 9px;
+        }
+
+        .date-cell {
+            width: 70px;
+            text-align: center;
+            font-size: 9px;
+        }
+
+        .duration-cell {
+            width: 60px;
+            text-align: center;
+            font-size: 9px;
+        }
+
+        .status-cell {
+            width: 80px;
+            text-align: center;
+            font-size: 9px;
+            font-weight: bold;
+        }
+
+        /* Timeline cells */
+        .timeline-cell {
+            width: 12px;
+            height: 20px;
+            position: relative;
+            padding: 1px;
+        }
+
+        .completed {
+            background: #4CAF50 !important;
+        }
+
+        .in-progress {
+            background: #FF9800 !important;
+        }
+
+        .delayed {
+            background: #F44336 !important;
+        }
+
+        .not-started {
+            background: #E0E0E0 !important;
+        }
+
+        .milestone {
+            background: #2196F3 !important;
+            position: relative;
+        }
+
+        .milestone::after {
+            content: '♦';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 8px;
+        }
+
+        .today-marker {
+            background: #FF5722 !important;
+            position: relative;
+        }
+
+        .today-marker::after {
+            content: '▼';
+            position: absolute;
+            top: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #FF5722;
+            font-size: 8px;
+        }
+
+        .status-completed {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .status-in-progress {
+            color: #FF9800;
+            font-weight: bold;
+        }
+
+        .status-delayed {
+            color: #F44336;
+            font-weight: bold;
+        }
+
+        .status-not-started {
+            color: #757575;
+            font-weight: bold;
+        }
+
+        .end-date-section {
+            margin-top: 10px;
+            padding: 10px;
+            background: #E6F3FF;
+            border: 2px solid black;
+            font-weight: bold;
+            color: #0066CC;
+        }
+
+        .legend {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 15px;
+            background: #F5F5F5;
+            border: 1px solid #ccc;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 15px;
+            border: 1px solid black;
+        }
+
+        .project-info {
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .info-card {
+            padding: 15px;
+            background: #F0F8FF;
+            border: 1px solid #0066CC;
+            border-radius: 5px;
+        }
+
+        .info-card h3 {
+            color: #0066CC;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .info-card p {
+            font-size: 11px;
+            margin-bottom: 4px;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+                padding: 10px;
+            }
+            .timeline-container {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="project-info">
+        <div class="info-card">
+            <h3>📊 Project Overview</h3>
+            <p><strong>Project:</strong> ZERF Data Automation System</p>
+            <p><strong>Team:</strong> Lam Research Development Team</p>
+            <p><strong>Start Date:</strong> August 25, 2025</p>
+            <p><strong>Development Period:</strong> 2 days (26-27 Aug)</p>
+            <p><strong>Current Phase:</strong> 95% Complete - Ready for EXE</p>
+        </div>
+        <div class="info-card">
+            <h3>👤 Team Information</h3>
+            <p><strong>Lead Developer:</strong> You</p>
+            <p><strong>Team Size:</strong> 1 Developer</p>
+            <p><strong>Project Type:</strong> SAP Automation</p>
+            <p><strong>Current Status:</strong> Testing Complete - EXE Packaging</p>
+        </div>
+        <div class="info-card">
+            <h3>📈 Progress Status</h3>
+            <p><strong>Overall Progress:</strong> 95% Complete</p>
+            <p><strong>Development:</strong> ✅ Completed (27 Aug)</p>
+            <p><strong>Testing:</strong> ✅ 95% Complete (28 Aug - 4 Sep)</p>
+            <p><strong>EXE Packaging:</strong> 🚧 Next Critical Task</p>
+        </div>
+    </div>
+
+    <div class="dashboard-header">
+        ZERF DATA AUTOMATION SYSTEM - HOURLY PROJECT TIMELINE DASHBOARD
+    </div>
+
+    <div class="timeline-container">
+        <table class="timeline-table">
+            <thead>
+                <tr class="header-row">
+                    <th rowspan="3">Phase</th>
+                    <th rowspan="3">Key Activities</th>
+                    <th rowspan="3">Start Date/Time</th>
+                    <th rowspan="3">End Date/Time</th>
+                    <th rowspan="3">Duration</th>
+                    <th rowspan="3">Status</th>
+                    <th colspan="24">Aug 25 (Sun)</th>
+                    <th colspan="24">Aug 26 (Mon)</th>
+                    <th colspan="24">Aug 27 (Tue)</th>
+                    <th colspan="24">Aug 28 (Wed)</th>
+                    <th colspan="24">Aug 29 (Thu)</th>
+                    <th colspan="24">Aug 30 (Fri)</th>
+                    <th colspan="24">Aug 31 (Sat)</th>
+                    <th colspan="24">Sep 1 (Sun)</th>
+                    <th colspan="24">Sep 2 (Mon)</th>
+                    <th colspan="24">Sep 3 (Tue)</th>
+                    <th colspan="24">Sep 4 (Wed)</th>
+                    <th colspan="24">Sep 5 (Thu)</th>
+                    <th colspan="24">Sep 6 (Fri)</th>
+                    <th colspan="24">Sep 7 (Sat)</th>
+                </tr>
+                <tr class="header-row">
+                    <th class="day-header">25<br/>Aug</th>
+                    <th class="day-header">26<br/>Aug</th>
+                    <th class="day-header">27<br/>Aug</th>
+                    <th class="day-header">28<br/>Aug</th>
+                    <th class="day-header">29<br/>Aug</th>
+                    <th class="day-header">30<br/>Aug</th>
+                    <th class="day-header">31<br/>Aug</th>
+                    <th class="day-header">1<br/>Sep</th>
+                    <th class="day-header">2<br/>Sep</th>
+                    <th class="day-header">3<br/>Sep</th>
+                    <th class="day-header">4<br/>Sep</th>
+                    <th class="day-header">5<br/>Sep</th>
+                    <th class="day-header">6<br/>Sep</th>
+                    <th class="day-header">7<br/>Sep</th>
+                </tr>
+                <tr class="hour-header">
+                    <!-- Aug 25 Hours -->
+                    <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th>
+                    <!-- Aug 26 Hours -->
+                    <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th>
+                    <!-- Aug 27 Hours -->
+                    <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th>
+                    <!-- Aug 28 Hours -->
+                    <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th>
+                    <!-- Aug 29 Hours -->
+                    <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th>
+                    <!-- Aug 30 Hours -->
+                    <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th>
+                    <!-- Aug 31 Hours -->
+                    <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th>
+                    <!-- Sep 1 Hours -->
+                    <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th>
+                    <!-- Sep 2 Hours -->
+                    <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th>
+                    <!-- Sep 3 Hours -->
+                    <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th>
+                    <!-- Sep 4 Hours -->
+                    <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th>
+                    <!-- Sep 5 Hours -->
+                    <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th>
+                    <!-- Sep 6 Hours -->
+                    <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th>
+                    <!-- Sep 7 Hours -->
+                    <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>22</th><th>23</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Phase 1: Requirements Gathering -->
+                <tr>
+                    <td class="phase-cell">Requirements</td>
+                    <td class="activity-cell">Project scope analysis and requirement gathering</td>
+                    <td class="date-cell">25 Aug 09:00</td>
+                    <td class="date-cell">25 Aug 18:00</td>
+                    <td class="duration-cell">9 hours</td>
+                    <td class="status-cell status-completed">Completed</td>
+                    <!-- Aug 25 -->
+                    <td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td>
+                    <td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td>
+                    <td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td>
+                    <!-- Remaining days empty for this task -->
+                    <td class="timeline-cell" colspan="312"></td>
+                </tr>
+
+                <!-- Phase 2: Development Day 1 -->
+                <tr>
+                    <td class="phase-cell">Development</td>
+                    <td class="activity-cell">Core framework setup and VBS script development</td>
+                    <td class="date-cell">26 Aug 08:00</td>
+                    <td class="date-cell">26 Aug 22:00</td>
+                    <td class="duration-cell">14 hours</td>
+                    <td class="status-cell status-completed">Completed</td>
+                    <!-- Aug 25 - empty -->
+                    <td class="timeline-cell" colspan="24"></td>
+                    <!-- Aug 26 -->
+                    <td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td>
+                    <td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td>
+                    <!-- Remaining days empty for this task -->
+                    <td class="timeline-cell" colspan="288"></td>
+                </tr>
+
+                <!-- Phase 3: Development Day 2 -->
+                <tr>
+                    <td class="phase-cell">Development</td>
+                    <td class="activity-cell">Excel cleaning engine, GUI, SharePoint integration, date range feature</td>
+                    <td class="date-cell">27 Aug 08:00</td>
+                    <td class="date-cell">27 Aug 23:00</td>
+                    <td class="duration-cell">15 hours</td>
+                    <td class="status-cell status-completed">Completed</td>
+                    <!-- Aug 25-26 - empty -->
+                    <td class="timeline-cell" colspan="48"></td>
+                    <!-- Aug 27 -->
+                    <td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td>
+                    <td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell milestone"></td>
+                    <!-- Remaining days empty for this task -->
+                    <td class="timeline-cell" colspan="264"></td>
+                </tr>
+
+                <!-- Phase 4: Testing & Debugging -->
+                <tr>
+                    <td class="phase-cell">Testing</td>
+                    <td class="activity-cell">Comprehensive testing, bug fixes, and optimization</td>
+                    <td class="date-cell">28 Aug 09:00</td>
+                    <td class="date-cell">4 Sep 18:00</td>
+                    <td class="duration-cell">8 days</td>
+                    <td class="status-cell status-in-progress">95% Complete</td>
+                    <!-- Aug 25-27 - empty -->
+                    <td class="timeline-cell" colspan="72"></td>
+                    <!-- Aug 28 -->
+                    <td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td>
+                    <td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td>
+                    <td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td>
+                    <!-- Aug 29 -->
+                    <td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td>
+                    <!-- Aug 30 -->
+                    <td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td>
+                    <!-- Aug 31 -->
+                    <td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td>
+                    <!-- Sep 1 -->
+                    <td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td>
+                    <!-- Sep 2 -->
+                    <td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td>
+                    <!-- Sep 3 -->
+                    <td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td>
+                    <!-- Sep 4 -->
+                    <td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell completed"></td><td class="timeline-cell in-progress"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td>
+                    <!-- Sep 5-7 empty for this task -->
+                    <td class="timeline-cell" colspan="72"></td>
+                </tr>
+
+                <!-- Phase 5: EXE Packaging -->
+                <tr>
+                    <td class="phase-cell">EXE Packaging</td>
+                    <td class="activity-cell">Python to EXE conversion using PyInstaller</td>
+                    <td class="date-cell">7 Sep 10:00</td>
+                    <td class="date-cell">8 Sep 18:00</td>
+                    <td class="duration-cell">32 hours</td>
+                    <td class="status-cell status-not-started">Pending</td>
+                    <!-- All previous days empty -->
+                    <td class="timeline-cell" colspan="286"></td>
+                    <!-- Sep 7 from 10:00 -->
+                    <td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td><td class="timeline-cell"></td>
+                    <td class="timeline-cell today-marker"></td><td class="timeline-cell not-started"></td><td class="timeline-cell not-started"></td><td class="timeline-cell not-started"></td><td class="timeline-cell not-started"></td><td class="timeline-cell not-started"></td><td class="timeline-cell not-started"></td><td class="timeline-cell not-started"></td><td class="timeline-cell not-started"></td><td class="timeline-cell not-started"></td><td class="timeline-cell not-started"></td><td class="timeline-cell not-started"></td><td class="timeline-cell not-started"></td><td class="timeline-cell not-started"></td>
+                </tr>
+
+                <!-- Phase 6: Documentation -->
+                <tr>
+                    <td class="phase-cell">Documentation</td>
+                    <td class="activity-cell">User guide, README, and installation documentation</td>
+                    <td class="date-cell">8 Sep 08:00</td>
+                    <td class="date-cell">8 Sep 16:00</td>
+                    <td class="duration-cell">8 hours</td>
+                    <td class="status-cell status-not-started">Pending</td>
+                    <!-- All days empty for this task -->
+                    <td class="timeline-cell" colspan="336"></td>
+                </tr>
+
+                <!-- Phase 7: Team Handover -->
+                <tr>
+                    <td class="phase-cell">Handover</td>
+                    <td class="activity-cell">Team training and EXE distribution to Lam Research colleagues</td>
+                    <td class="date-cell">9 Sep 09:00</td>
+                    <td class="date-cell">10 Sep 17:00</td>
+                    <td class="duration-cell">32 hours</td>
+                    <td class="status-cell status-not-started">Planned</td>
+                    <!-- All days empty for this task -->
+                    <td class="timeline-cell" colspan="336"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="end-date-section">
+        <strong>Project Status as of September 7, 2025 (Today)</strong> | 
+        Current Phase: 95% Complete - Ready for EXE Packaging |
+        Next Critical Task: PyInstaller EXE Creation |
+        Estimated Completion: September 10, 2025
+    </div>
+
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-color completed"></div>
+            <span>Completed</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color in-progress"></div>
+            <span>In Progress</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color not-started"></div>
+            <span>Not Started/Planned</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color milestone"></div>
+            <span>Milestone</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color today-marker"></div>
+            <span>Today (Sep 7, 2025 - 10:00 AM)</span>
+        </div>
+    </div>
+
+    <!-- Detailed Project Breakdown -->
+    <div style="margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div style="background: #F0F8FF; padding: 20px; border: 1px solid #0066CC; border-radius: 5px;">
+            <h3 style="color: #0066CC; margin-bottom: 15px; font-size: 14px;">⏱️ Hourly Breakdown Summary</h3>
+            <table style="width: 100%; font-size: 11px; border-collapse: collapse;">
+                <tr style="background: #E6F3FF;">
+                    <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Phase</th>
+                    <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Hours Worked</th>
+                    <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Completion</th>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 8px;">Requirements Gathering</td>
+                    <td style="border: 1px solid #ccc; padding: 8px;">9 hours</td>
+                    <td style="border: 1px solid #ccc; padding: 8px; color: #4CAF50; font-weight: bold;">100%</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 8px;">Development Day 1</td>
+                    <td style="border: 1px solid #ccc; padding: 8px;">14 hours</td>
+                    <td style="border: 1px solid #ccc; padding: 8px; color: #4CAF50; font-weight: bold;">100%</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 8px;">Development Day 2</td>
+                    <td style="border: 1px solid #ccc; padding: 8px;">15 hours</td>
+                    <td style="border: 1px solid #ccc; padding: 8px; color: #4CAF50; font-weight: bold;">100%</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 8px;">Testing & Debugging</td>
+                    <td style="border: 1px solid #ccc; padding: 8px;">160+ hours</td>
+                    <td style="border: 1px solid #ccc; padding: 8px; color: #FF9800; font-weight: bold;">95%</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 8px;">EXE Packaging</td>
+                    <td style="border: 1px solid #ccc; padding: 8px;">0 hours</td>
+                    <td style="border: 1px solid #ccc; padding: 8px; color: #757575; font-weight: bold;">0%</td>
+                </tr>
+                <tr style="background: #E6F3FF; font-weight: bold;">
+                    <td style="border: 1px solid #ccc; padding: 8px;">Total Project Time</td>
+                    <td style="border: 1px solid #ccc; padding: 8px;">198+ hours</td>
+                    <td style="border: 1px solid #ccc; padding: 8px; color: #FF9800;">95%</td>
+                </tr>
+            </table>
+        </div>
+
+        <div style="background: #F0F8FF; padding: 20px; border: 1px solid #0066CC; border-radius: 5px;">
+            <h3 style="color: #0066CC; margin-bottom: 15px; font-size: 14px;">🚀 Next Immediate Actions</h3>
+            <div style="font-size: 11px;">
+                <div style="background: #FFF3E0; border-left: 4px solid #FF9800; padding: 10px; margin-bottom: 10px;">
+                    <strong>🎯 TODAY (Sep 7):</strong><br>
+                    • Complete final testing (remaining 5%)<br>
+                    • Prepare PyInstaller setup<br>
+                    • Test Python dependencies
+                </div>
+                <div style="background: #E3F2FD; border-left: 4px solid #2196F3; padding: 10px; margin-bottom: 10px;">
+                    <strong>⚡ TOMORROW (Sep 8):</strong><br>
+                    • Create EXE using PyInstaller<br>
+                    • Test EXE on different machines<br>
+                    • Finalize documentation
+                </div>
+                <div style="background: #E8F5E8; border-left: 4px solid #4CAF50; padding: 10px;">
+                    <strong>📦 Sep 9-10:</strong><br>
+                    • Distribute EXE to Lam Research team<br>
+                    • Conduct training sessions<br>
+                    • Project handover complete
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technical Implementation Timeline -->
+    <div style="margin-top: 20px; background: #F0F8FF; padding: 20px; border: 1px solid #0066CC; border-radius: 5px;">
+        <h3 style="color: #0066CC; margin-bottom: 15px; font-size: 14px;">🔧 Technical Implementation Timeline</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; font-size: 11px;">
+            <div>
+                <h4 style="color: #4CAF50; margin-bottom: 8px;">✅ Completed Features (100%)</h4>
+                <ul style="margin-left: 15px; line-height: 1.4;">
+                    <li><strong>Aug 26:</strong> VBS Script Framework (14 hrs)</li>
+                    <li><strong>Aug 27:</strong> SAP ZERF Automation (4 hrs)</li>
+                    <li><strong>Aug 27:</strong> Excel Data Cleaning Engine (6 hrs)</li>
+                    <li><strong>Aug 27:</strong> Tkinter GUI Development (3 hrs)</li>
+                    <li><strong>Aug 27:</strong> SharePoint Integration (2 hrs)</li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: #FF9800; margin-bottom: 8px;">🔄 Testing Phase (95% Complete)</h4>
+                <ul style="margin-left: 15px; line-height: 1.4;">
+                    <li><strong>Aug 28-30:</strong> Core functionality testing</li>
+                    <li><strong>Aug 31-Sep 2:</strong> Integration testing</li>
+                    <li><strong>Sep 3-4:</strong> User acceptance testing</li>
+                    <li><strong>Sep 5-7:</strong> Final bug fixes & optimization</li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: #2196F3; margin-bottom: 8px;">🚧 Remaining Tasks</h4>
+                <ul style="margin-left: 15px; line-height: 1.4;">
+                    <li><strong>Sep 7-8:</strong> PyInstaller EXE packaging</li>
+                    <li><strong>Sep 8:</strong> Documentation finalization</li>
+                    <li><strong>Sep 9-10:</strong> Team training & handover</li>
+                    <li><strong>Sep 10:</strong> Project closure</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- PyInstaller Command Reference -->
+    <div style="margin-top: 20px; background: #F0F8FF; padding: 20px; border: 1px solid #0066CC; border-radius: 5px;">
+        <h3 style="color: #0066CC; margin-bottom: 15px; font-size: 14px;">💻 PyInstaller EXE Creation Commands</h3>
+        <div style="background: #263238; color: #FFFFFF; padding: 15px; border-radius: 5px; font-family: 'Courier New', monospace; font-size: 10px;">
+            <div style="color: #4CAF50; margin-bottom: 10px;"># Basic EXE creation command</div>
+            <div>pyinstaller --onefile --windowed --name "ZERF_Automation_System" zerf_automation.py</div>
+            <br>
+            <div style="color: #4CAF50; margin-bottom: 10px;"># Advanced command with icon and hidden imports</div>
+            <div>pyinstaller --onefile --windowed --icon=zerf_icon.ico --add-data "zerf_config.ini;." --hidden-import tkinter --hidden-import pandas --hidden-import openpyxl --name "ZERF_Automation_System" zerf_automation.py</div>
+            <br>
+            <div style="color: #FF9800; margin-bottom: 10px;"># Testing the EXE</div>
+            <div>cd dist</div>
+            <div>ZERF_Automation_System.exe --gui</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="margin-top: 30px; text-align: center; font-size: 10px; color: #757575; border-top: 1px solid #ccc; padding-top: 15px;">
+        <p><strong>ZERF Data Automation System - Hourly Project Timeline Dashboard</strong></p>
+        <p>Generated: September 7, 2025 | Lam Research Development Team | Document Version: 2.0</p>
+        <p>Project Duration: 13 days (Aug 25 - Sep 10) | Total Development Time: 198+ hours | Completion: 95%</p>
+        <p>Next Milestone: EXE Package Delivery - September 10, 2025</p>
+    </div>
+</body>
+</html>
