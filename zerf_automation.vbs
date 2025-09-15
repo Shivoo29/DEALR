@@ -8,7 +8,7 @@ Set session = connection.Children(0)
 Set WshShell = CreateObject("WScript.Shell")
 
 downloadPath = "C:\Users\jhash\Documents\DEALr\downloads"
-fileName = "zerf_09-08-2025.xlsx"
+fileName = "zerf_09-15-2025.xlsx"
 fullPath = downloadPath & "\" & fileName
 
 ' SAP Automation
@@ -29,7 +29,7 @@ session.findById("wnd[1]/usr/tabsTAB_STRIP/tabpSIVA/ssubSCREEN_HEADER:SAPLALDB:3
 session.findById("wnd[1]/usr/tabsTAB_STRIP/tabpSIVA/ssubSCREEN_HEADER:SAPLALDB:3010/tblSAPLALDBSINGLE/ctxtRSCSEL_255-SLOW_I[1,6]").caretPosition = 4
 session.findById("wnd[1]/tbar[0]/btn[8]").press
 session.findById("wnd[0]/usr/ctxtSP$00018-LOW").text = "08/03/2025"
-session.findById("wnd[0]/usr/ctxtSP$00018-HIGH").text = "09/08/2025"
+session.findById("wnd[0]/usr/ctxtSP$00018-HIGH").text = "09/15/2025"
 session.findById("wnd[0]/usr/ctxtSP$00018-LOW").setFocus
 session.findById("wnd[0]/usr/ctxtSP$00018-LOW").caretPosition = 2
 session.findById("wnd[0]/tbar[1]/btn[8]").press

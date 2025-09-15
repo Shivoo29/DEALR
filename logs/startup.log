@@ -1,0 +1,11 @@
+[15-09-2025  3:15:14.40] Starting ZERF Automation System 
+[15-09-2025  3:15:14.40] Launching automation system in background mode 
+Warning: tkcalendar not available - using basic date entry
+2025-09-15 03:15:17,419 - INFO - ZERF Automation System initialized
+2025-09-15 03:15:17,419 - INFO - Starting scheduler - will run daily at 08:00
+^C[15-09-2025  3:16:32.90] Starting ZERF Automation System 
+[15-09-2025  3:16:32.90] Launching automation system in background mode 
+Warning: tkcalendar not available - using basic date entry
+2025-09-15 03:16:34,985 - INFO - ZERF Automation System initialized
+2025-09-15 03:16:34,985 - INFO - Starting scheduler - will run daily at 08:00
+^C

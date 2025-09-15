@@ -1,0 +1,70 @@
+2025-09-11 12:29:15,555 - INFO - ZERF Automation System initialized
+2025-09-11 12:29:45,918 - INFO - ============================================================
+2025-09-11 12:29:45,920 - INFO - Starting ZERF automation workflow
+2025-09-11 12:29:45,926 - INFO - Date range: 08/03/2025 to 09/10/2025
+2025-09-11 12:29:45,927 - INFO - ============================================================
+2025-09-11 12:29:45,929 - INFO - Step 1: Running VBS script...
+2025-09-11 12:29:45,933 - INFO - Starting VBS script execution...
+2025-09-11 12:29:45,939 - INFO - Created VBS script with date range: 08/03/2025 to 09/10/2025
+2025-09-11 12:29:45,944 - INFO - Target file: C:\Users\jhash\Documents\DEALr\downloads\zerf_09-11-2025.xlsx
+2025-09-11 12:34:51,392 - INFO - VBS script executed successfully
+2025-09-11 12:34:51,393 - INFO - Step 2: Waiting for file to be completely saved...
+2025-09-11 12:35:01,396 - INFO - Step 3: Searching for downloaded file...
+2025-09-11 12:35:01,401 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-11 12:35:01,664 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-11 12:35:12,138 - INFO - Waiting for files... (0.2 min elapsed)
+2025-09-11 12:35:12,140 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-11 12:35:12,162 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-11 12:35:22,189 - INFO - Waiting for files... (0.3 min elapsed)
+2025-09-11 12:35:22,192 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-11 12:35:22,210 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-11 12:35:32,243 - INFO - Waiting for files... (0.5 min elapsed)
+2025-09-11 12:35:32,245 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-11 12:35:32,270 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-11 12:35:42,307 - INFO - Waiting for files... (0.7 min elapsed)
+2025-09-11 12:35:42,310 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-11 12:35:42,335 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-11 12:35:52,377 - INFO - Waiting for files... (0.8 min elapsed)
+2025-09-11 12:35:52,381 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-11 12:35:52,408 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-11 12:36:02,447 - INFO - Waiting for files... (1.0 min elapsed)
+2025-09-11 12:36:02,451 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-11 12:36:02,476 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-11 12:36:03,914 - INFO - Starting data cleaning: C:/Users/jhash/Documents/DEALr/downloads/zerf_09-11-2025.XLSX
+2025-09-11 12:36:05,318 - INFO - Processing sheet: Sheet1
+2025-09-11 12:36:12,508 - INFO - Waiting for files... (1.2 min elapsed)
+2025-09-11 12:36:12,554 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-11 12:36:12,763 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-11 12:36:23,112 - INFO - Waiting for files... (1.4 min elapsed)
+2025-09-11 12:36:23,117 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-11 12:36:23,259 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-11 12:36:23,265 - INFO - Removed 23 rows with PGr values W91 or Z05
+2025-09-11 12:36:23,269 - INFO - Sheet Sheet1: 24222 -> 2602 rows
+2025-09-11 12:36:29,305 - INFO - Data cleaning completed: C:\Users\jhash\Documents\DEALr\downloads\zerf_09-11-2025_cleaned.xlsx
+2025-09-11 12:36:29,313 - INFO - Starting SharePoint upload: C:\Users\jhash\Documents\DEALr\downloads\zerf_09-11-2025_cleaned.xlsx
+2025-09-11 12:36:29,737 - ERROR - Cannot get binary security token for from https://login.microsoftonline.com/extSTS.srf
+2025-09-11 12:36:29,738 - ERROR - Office365 upload error: Cannot get binary security token for from https://login.microsoftonline.com/extSTS.srf
+2025-09-11 12:36:29,757 - INFO - Backup created: backup\zerf_09-11-2025_20250911_123629.XLSX
+2025-09-11 12:36:29,763 - INFO - Backup created: backup\zerf_09-11-2025_cleaned_20250911_123629.xlsx
+2025-09-11 12:36:34,022 - INFO - Waiting for files... (1.5 min elapsed)
+2025-09-11 12:36:34,024 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-11 12:36:34,081 - INFO - Found candidate file: C:\Users\jhash\Documents\DEALr\downloads\zerf_09-11-2025_cleaned.xlsx (age: 0.2 min)
+2025-09-11 12:36:34,083 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-11 12:36:34,118 - INFO - Selected accessible file: C:\Users\jhash\Documents\DEALr\downloads\zerf_09-11-2025_cleaned.xlsx
+2025-09-11 12:36:34,119 - INFO - Found downloaded file: C:\Users\jhash\Documents\DEALr\downloads\zerf_09-11-2025_cleaned.xlsx
+2025-09-11 12:36:34,122 - INFO - Step 4: Cleaning data...
+2025-09-11 12:36:34,126 - INFO - Starting data cleaning: C:\Users\jhash\Documents\DEALr\downloads\zerf_09-11-2025_cleaned.xlsx
+2025-09-11 12:36:34,141 - INFO - Processing sheet: Sheet1
+2025-09-11 12:36:37,478 - INFO - Removed 0 rows with PGr values W91 or Z05
+2025-09-11 12:36:37,479 - INFO - Sheet Sheet1: 2602 -> 2602 rows
+2025-09-11 12:36:43,752 - INFO - Data cleaning completed: C:\Users\jhash\Documents\DEALr\downloads\zerf_09-11-2025_cleaned.xlsx
+2025-09-11 12:36:43,760 - INFO - Step 5: Uploading to SharePoint...
+2025-09-11 12:36:43,763 - INFO - Starting SharePoint upload: C:\Users\jhash\Documents\DEALr\downloads\zerf_09-11-2025_cleaned.xlsx
+2025-09-11 12:36:44,176 - ERROR - Cannot get binary security token for from https://login.microsoftonline.com/extSTS.srf
+2025-09-11 12:36:44,177 - ERROR - Office365 upload error: Cannot get binary security token for from https://login.microsoftonline.com/extSTS.srf
+2025-09-11 12:36:44,180 - WARNING - SharePoint upload failed
+2025-09-11 12:36:44,191 - INFO - Backup created: backup\zerf_09-11-2025_cleaned_20250911_123644.xlsx
+2025-09-11 12:36:44,198 - INFO - Backup created: backup\zerf_09-11-2025_cleaned_20250911_123644.xlsx
+2025-09-11 12:36:44,202 - INFO - ============================================================
+2025-09-11 12:36:44,207 - INFO - ZERF automation workflow completed successfully!
+2025-09-11 12:36:44,211 - INFO - ============================================================

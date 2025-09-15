@@ -1,0 +1,34 @@
+2025-09-12 13:50:05,083 - INFO - ZERF Automation System initialized
+2025-09-12 13:52:13,730 - INFO - ============================================================
+2025-09-12 13:52:13,732 - INFO - Starting ZERF automation workflow
+2025-09-12 13:52:13,734 - INFO - Date range: 08/03/2025 to 09/12/2025
+2025-09-12 13:52:13,737 - INFO - ============================================================
+2025-09-12 13:52:13,740 - INFO - Step 1: Running VBS script...
+2025-09-12 13:52:13,742 - INFO - Starting VBS script execution...
+2025-09-12 13:52:13,746 - INFO - Created VBS script with date range: 08/03/2025 to 09/12/2025
+2025-09-12 13:52:13,749 - INFO - Target file: C:\Users\jhash\Documents\DEALr\downloads\zerf_09-12-2025.xlsx
+2025-09-12 13:57:35,629 - INFO - VBS script executed successfully
+2025-09-12 13:57:35,631 - INFO - Step 2: Waiting for file to be completely saved...
+2025-09-12 13:57:45,634 - INFO - Step 3: Searching for downloaded file...
+2025-09-12 13:57:45,637 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-12 13:57:45,962 - INFO - Found candidate file: C:\Users\jhash\Documents\DEALr\downloads\zerf_09-12-2025.XLSX (age: 1.6 min)
+2025-09-12 13:57:45,963 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-12 13:57:46,231 - INFO - Found candidate file: C:\Users\jhash\Downloads\ERF report Sep 12.xlsx (age: 28.3 min)
+2025-09-12 13:57:46,502 - INFO - Selected accessible file: C:\Users\jhash\Documents\DEALr\downloads\zerf_09-12-2025.XLSX
+2025-09-12 13:57:46,503 - INFO - Found downloaded file: C:\Users\jhash\Documents\DEALr\downloads\zerf_09-12-2025.XLSX
+2025-09-12 13:57:46,505 - INFO - Step 4: Cleaning data...
+2025-09-12 13:57:46,507 - INFO - Starting data cleaning: C:\Users\jhash\Documents\DEALr\downloads\zerf_09-12-2025.XLSX
+2025-09-12 13:57:48,088 - INFO - Processing sheet: Sheet1
+2025-09-12 13:58:11,831 - INFO - Removed 23 rows with PGr values W91 or Z05
+2025-09-12 13:58:11,832 - INFO - Sheet Sheet1: 25160 -> 2625 rows
+2025-09-12 13:58:19,269 - INFO - Data cleaning completed: C:\Users\jhash\Documents\DEALr\downloads\zerf_09-12-2025_cleaned.xlsx
+2025-09-12 13:58:19,273 - INFO - Step 5: Uploading to SharePoint...
+2025-09-12 13:58:19,277 - INFO - Starting SharePoint upload: C:\Users\jhash\Documents\DEALr\downloads\zerf_09-12-2025_cleaned.xlsx
+2025-09-12 13:58:19,861 - ERROR - Cannot get binary security token for from https://login.microsoftonline.com/extSTS.srf
+2025-09-12 13:58:19,862 - ERROR - Office365 upload error: Cannot get binary security token for from https://login.microsoftonline.com/extSTS.srf
+2025-09-12 13:58:19,865 - WARNING - SharePoint upload failed
+2025-09-12 13:58:19,891 - INFO - Backup created: backup\zerf_09-12-2025_20250912_135819.XLSX
+2025-09-12 13:58:19,902 - INFO - Backup created: backup\zerf_09-12-2025_cleaned_20250912_135819.xlsx
+2025-09-12 13:58:19,903 - INFO - ============================================================
+2025-09-12 13:58:19,911 - INFO - ZERF automation workflow completed successfully!
+2025-09-12 13:58:19,916 - INFO - ============================================================

@@ -35,3 +35,6 @@
 2025-09-08 12:58:17,320 - INFO - ============================================================
 2025-09-08 12:58:17,322 - INFO - ZERF automation workflow completed successfully!
 2025-09-08 12:58:17,323 - INFO - ============================================================
+2025-09-08 15:09:09,662 - INFO - ZERF Automation System initialized
+2025-09-08 15:09:09,662 - INFO - Starting scheduler - will run daily at 08:00
+2025-09-08 15:10:19,975 - INFO - ZERF automation system stopped

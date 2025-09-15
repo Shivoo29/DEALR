@@ -376,7 +376,7 @@ Set SapGuiAuto = Nothing
         except Exception as e:
             self.logger.error(f"Error finding downloaded file: {e}")
             return None
-    
+        
     def clean_excel_data(self, input_file_path):
         """Clean Excel data according to requirements"""
         try:
@@ -393,37 +393,58 @@ Set SapGuiAuto = Nothing
                 df = pd.read_excel(input_file_path, sheet_name=sheet_name)
                 
                 initial_rows = len(df)
-                
-                # Step 1: Create Unique_ID column
-                if 'ERF Number' in df.columns and 'Item' in df.columns:
-                    erf_position = df.columns.get_loc('ERF Number')
-                    unique_id_values = df['ERF Number'].astype(str) + '-' + df['Item'].astype(str)
+            
+            # Step 1: Create Unique_ID column
+                if 'ERF Nr' in df.columns and 'Item' in df.columns:
+                    erf_position = df.columns.get_loc('ERF Nr')
+                    unique_id_values = df['ERF Nr'].astype(str) + '-' + df['Item'].astype(str)
+                    # Insert Unique_ID column right before ERF Nr column
                     df.insert(erf_position, 'Unique_ID', unique_id_values)
                     self.logger.info("Created Unique_ID column")
                 
+                    # Debug: Print column names to verify Unique_ID is there
+                    self.logger.info(f"Columns after Unique_ID creation: {list(df.columns)}")
+                else:
+                    self.logger.warning("ERF Nr or Item columns not found - cannot create Unique_ID")
+            
                 # Step 2: Remove duplicates
                 if 'Unique_ID' in df.columns:
+                    before_dedup = len(df)
                     df = df.drop_duplicates(subset=['Unique_ID'], keep='first')
-                
+                    after_dedup = len(df)
+                    self.logger.info(f"Removed {before_dedup - after_dedup} duplicate rows based on Unique_ID")
+            
                 # Step 3: Remove specific statuses
                 if 'Engineering Request Form Status' in df.columns:
                     status_to_remove = ['Draft', 'Presubmit', 'Submit']
+                    before_status = len(df)
                     df = df[~df['Engineering Request Form Status'].isin(status_to_remove)]
-                
+                    after_status = len(df)
+                    self.logger.info(f"Removed {before_status - after_status} rows with status: {status_to_remove}")
+            
                 # Step 4: Remove blank ERF Sched Line Status
                 if 'ERF Sched Line Status' in df.columns:
+                    before_blank = len(df)
                     df = df.dropna(subset=['ERF Sched Line Status'])
                     df = df[df['ERF Sched Line Status'] != '']
-                
+                    after_blank = len(df)
+                    self.logger.info(f"Removed {before_blank - after_blank} rows with blank ERF Sched Line Status")
+            
                 # Step 5: Remove Indirect commodity types
                 if 'Commodity Type' in df.columns:
+                    before_commodity = len(df)
                     df = df[~df['Commodity Type'].astype(str).str.contains('Indirect', case=False, na=False)]
-                
+                    after_commodity = len(df)
+                    self.logger.info(f"Removed {before_commodity - after_commodity} rows with Indirect commodity type")
+            
                 # Step 6: Keep only specific Ship-To-Plant values
                 if 'Ship-To-Plant' in df.columns:
                     allowed_plants = [6100, 6200, 6300, '6100', '6200', '6300']
+                    before_plant = len(df)
                     df = df[df['Ship-To-Plant'].isin(allowed_plants)]
-                
+                    after_plant = len(df)
+                    self.logger.info(f"Kept only allowed plants, removed {before_plant - after_plant} rows")
+            
                 # Step 7: Remove W91 and Z05 from PGr column
                 if 'PGr' in df.columns:
                     pgr_to_remove = ['W91', 'Z05']
@@ -431,19 +452,27 @@ Set SapGuiAuto = Nothing
                     df = df[~df['PGr'].isin(pgr_to_remove)]
                     removed_pgr_rows = initial_pgr_rows - len(df)
                     self.logger.info(f"Removed {removed_pgr_rows} rows with PGr values W91 or Z05")
-                
+            
                 final_rows = len(df)
                 self.logger.info(f"Sheet {sheet_name}: {initial_rows} -> {final_rows} rows")
-                cleaned_sheets[sheet_name] = df
             
+                # Final debug: Verify Unique_ID is still there
+                if 'Unique_ID' in df.columns:
+                    self.logger.info(f"✓ Unique_ID column preserved in final output")
+                    self.logger.info(f"Sample Unique_ID values: {df['Unique_ID'].head(3).tolist()}")
+                else:
+                    self.logger.error("✗ Unique_ID column missing in final output!")
+            
+                cleaned_sheets[sheet_name] = df
+        
             # Save cleaned data
             with pd.ExcelWriter(output_file_path, engine='openpyxl') as writer:
                 for sheet_name, df in cleaned_sheets.items():
                     df.to_excel(writer, sheet_name=sheet_name, index=False)
-            
+        
             self.logger.info(f"Data cleaning completed: {output_file_path}")
             return output_file_path
-            
+        
         except Exception as e:
             self.logger.error(f"Error cleaning data: {e}")
             return None
