@@ -8,7 +8,7 @@ Set session = connection.Children(0)
 Set WshShell = CreateObject("WScript.Shell")
 
 downloadPath = "C:\Users\jhash\Documents\DEALr\downloads"
-fileName = "zerf_09-15-2025.xlsx"
+fileName = "zerf_09-16-2025.xlsx"
 fullPath = downloadPath & "\" & fileName
 
 ' SAP Automation

@@ -1,0 +1,84 @@
+2025-09-16 10:56:38,582 - INFO - ZERF Automation System initialized
+2025-09-16 10:58:50,926 - INFO - ============================================================
+2025-09-16 10:58:50,930 - INFO - Starting ZERF automation workflow
+2025-09-16 10:58:50,940 - INFO - Date range: 08/03/2025 to 09/15/2025
+2025-09-16 10:58:50,949 - INFO - ============================================================
+2025-09-16 10:58:50,953 - INFO - Step 1: Running VBS script...
+2025-09-16 10:58:50,957 - INFO - Starting VBS script execution...
+2025-09-16 10:58:50,973 - INFO - Created VBS script with date range: 08/03/2025 to 09/15/2025
+2025-09-16 10:58:50,976 - INFO - Target file: C:\Users\jhash\Documents\DEALr\downloads\zerf_09-16-2025.xlsx
+2025-09-16 11:05:31,241 - INFO - VBS script executed successfully
+2025-09-16 11:05:31,242 - INFO - Step 2: Waiting for file to be completely saved...
+2025-09-16 11:05:41,245 - INFO - Step 3: Searching for downloaded file...
+2025-09-16 11:05:41,258 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-16 11:05:41,590 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-16 11:05:52,068 - INFO - Waiting for files... (0.2 min elapsed)
+2025-09-16 11:05:52,074 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-16 11:05:52,102 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-16 11:06:02,131 - INFO - Waiting for files... (0.3 min elapsed)
+2025-09-16 11:06:02,133 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-16 11:06:02,160 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-16 11:06:12,198 - INFO - Waiting for files... (0.5 min elapsed)
+2025-09-16 11:06:12,199 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-16 11:06:12,229 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-16 11:06:22,267 - INFO - Waiting for files... (0.7 min elapsed)
+2025-09-16 11:06:22,269 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-16 11:06:22,672 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-16 11:06:33,098 - INFO - Waiting for files... (0.9 min elapsed)
+2025-09-16 11:06:33,102 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-16 11:06:33,154 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-16 11:06:43,199 - INFO - Waiting for files... (1.0 min elapsed)
+2025-09-16 11:06:43,203 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-16 11:06:43,228 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-16 11:06:53,256 - INFO - Waiting for files... (1.2 min elapsed)
+2025-09-16 11:06:53,263 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-16 11:06:53,302 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-16 11:07:03,349 - INFO - Waiting for files... (1.4 min elapsed)
+2025-09-16 11:07:03,352 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-16 11:07:03,389 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-16 11:07:13,423 - INFO - Waiting for files... (1.5 min elapsed)
+2025-09-16 11:07:13,426 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-16 11:07:13,483 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-16 11:07:23,532 - INFO - Waiting for files... (1.7 min elapsed)
+2025-09-16 11:07:23,537 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-16 11:07:23,594 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-16 11:07:33,652 - INFO - Waiting for files... (1.9 min elapsed)
+2025-09-16 11:07:33,656 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-16 11:07:33,714 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-16 11:07:43,752 - INFO - Waiting for files... (2.0 min elapsed)
+2025-09-16 11:07:43,757 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-16 11:07:43,798 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-16 11:07:53,844 - INFO - Waiting for files... (2.2 min elapsed)
+2025-09-16 11:07:53,846 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-16 11:07:53,876 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-16 11:08:21,635 - INFO - Waiting for files... (2.7 min elapsed)
+2025-09-16 11:08:21,675 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-16 11:08:23,028 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-16 11:08:33,251 - INFO - Waiting for files... (2.9 min elapsed)
+2025-09-16 11:08:33,255 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-16 11:08:33,276 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-16 11:08:43,301 - INFO - Waiting for files... (3.0 min elapsed)
+2025-09-16 11:08:43,302 - WARNING - No accessible Excel files found after waiting
+2025-09-16 11:08:43,308 - ERROR - No downloaded file found
+2025-09-16 11:08:47,802 - INFO - Searching in: C:\Users\jhash\Documents\DEALr\downloads
+2025-09-16 11:08:47,880 - INFO - Found candidate file: C:\Users\jhash\Documents\DEALr\downloads\zerf_09-16-2025.XLSX (age: 4.8 min)
+2025-09-16 11:08:47,881 - INFO - Searching in: C:\Users\jhash\Downloads
+2025-09-16 11:08:47,928 - INFO - Selected accessible file: C:\Users\jhash\Documents\DEALr\downloads\zerf_09-16-2025.XLSX
+2025-09-16 11:12:37,268 - INFO - Starting data cleaning: C:/Users/jhash/Documents/DEALr/downloads/zerf_09-16-2025.XLSX
+2025-09-16 11:12:38,900 - INFO - Processing sheet: Sheet1
+2025-09-16 11:12:59,440 - INFO - Created Unique_ID column
+2025-09-16 11:12:59,448 - INFO - Columns after Unique_ID creation: ['Plnt', 'Ship-To-Plant', 'ERF Delivery Type', 'Unique_ID', 'ERF Nr', 'Item', 'Approv Lvl', 'Entered by', 'PGr', 'ERF Status', 'Engineering Request Form Status', 'ERF Sched Line Status', 'MRP Element Type', 'MRP Element', 'ERF Itm Qty', 'ERF SL Qty', 'Unit', 'Cost', 'Max Cost', 'Misc Fee', 'Engineering Request Form Type', 'DT', 'Receiving Warehouse', 'Type of Expenditure', 'G/L', 'Cost Ctr', 'Order', 'ERF Product Group', 'Material', 'Material Description', 'Commodity Type', 'Commodity', 'Engineering Purpose', 'ERF Incr Order', 'Date Req.', 'Deliver To', 'Delv Loc', 'Dlv Bldg', 'MS', 'RevLev', 'CRF Number', 'Critical', 'Time', 'EntTime', 'Rec. Date', 'SL Rec Time', 'Entered by.1', 'Entry date', 'ChgTime', 'Changed on', 'Changed on.1', 'Com. Type', 'Open PO Qty', 'Eng. Purpose', 'Approved By', 'Appr. Date', 'ERF Approver', 'SL Entered by', 'Entry date.1', 'SL Entry date', 'SL EntTime', 'Product Group', 'ERF Sched Line Status.1', 'Changed on.2', 'Ext PO Cost', 'Crcy', 'Crcy.1', 'Deliv.Date', 'GR Qty', 'Changed by', 'Ext PO Material Nr', 'Quantity', 'Rec. Date.1', 'Ext PO Text', 'Tracking Number', 'Vendor Name', 'Ext PO Num', 'Matl Group', 'Miscellaneous Fee Text', 'Preappr Dt', 'Preappr By', 'Preappr Tm', 'PS Commit Date', 'Rec Need', 'RFC', 'Requested By', 'Sub Date', 'Sub Time', 'Submit By', 'ERF Dlv Type at Rec Loc', 'Material Receiving location', 'Part Type', 'Purchasing Group', 'Sched Line Plant', 'Ship-To-Plant.1', 'Source of Supply', 'Unit.1']
+2025-09-16 11:12:59,513 - INFO - Removed 3222 duplicate rows based on Unique_ID
+2025-09-16 11:12:59,554 - INFO - Removed 330 rows with status: ['Draft', 'Presubmit', 'Submit']
+2025-09-16 11:12:59,654 - INFO - Removed 1593 rows with blank ERF Sched Line Status
+2025-09-16 11:12:59,709 - INFO - Removed 1253 rows with Indirect commodity type
+2025-09-16 11:12:59,725 - INFO - Kept only allowed plants, removed 17853 rows
+2025-09-16 11:12:59,734 - INFO - Removed 24 rows with PGr values W91 or Z05
+2025-09-16 11:12:59,735 - INFO - Sheet Sheet1: 26830 -> 2555 rows
+2025-09-16 11:12:59,864 - INFO - Sample Unique_ID values: ['633748.0-10.0', '633726.0-10.0', '633715.0-10.0']
+2025-09-16 11:13:05,748 - INFO - Data cleaning completed: C:\Users\jhash\Documents\DEALr\downloads\zerf_09-16-2025_cleaned.xlsx
+2025-09-16 11:13:05,752 - INFO - Starting SharePoint upload: C:\Users\jhash\Documents\DEALr\downloads\zerf_09-16-2025_cleaned.xlsx
+2025-09-16 11:13:06,320 - ERROR - Cannot get binary security token for from https://login.microsoftonline.com/extSTS.srf
+2025-09-16 11:13:06,321 - ERROR - Office365 upload error: Cannot get binary security token for from https://login.microsoftonline.com/extSTS.srf
+2025-09-16 11:13:06,348 - INFO - Backup created: backup\zerf_09-16-2025_20250916_111306.XLSX
+2025-09-16 11:13:06,358 - INFO - Backup created: backup\zerf_09-16-2025_cleaned_20250916_111306.xlsx
